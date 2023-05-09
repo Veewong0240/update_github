@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="CSS/mancity.css">
+        <script src="java/showimg.js"></script>
+        <title>Manchester City</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+            <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+        <style>
+            body {
+                background-color: #6CABDD;
+            }
+            h1 {
+                color: #ffffff;
+            }
+            
+            button{
+                color: rgba(0, 255, 255, 0.576);
+            }
+            #map {
+                height: 400px;
+                width: 100%;
+            }
+            h2{
+                color: #ffffff;
+            }
+            #player1 {
+                color: azure;
+            }
+            #buttonGroup{
+                color: #ffffff;
+            }
+        </style>
+    </head>
+    <body id= "body" onload="mapLoad()">
+        <nav class="nav nav-pills"
+            <a class="nav-link" href="#">HOME</a>
+            <a class="nav-link" href="#">News</a>
+            <a class="nav-link" href="#">Players</a>
+            <a class="nav-link" href="#">Social Media</a>
+        <div class="container">
+            <h1>Manchester City</h1>
+            <h3 class="d-none d-md-block">We represent Manchester.</h3>
+        </div>
+
+
+        <div class="container mt-5">
+            <div id="buttonGroup" class="h3">Sample JS</div>
+            <button type="button" class="btn btn-primary" onclick="howdy('Vee')">Run Sample Js</button>
+            <button type="button" class="btn btn-primary" onclick="displayMinute()">Current Time</button>
+            <button type="button" class="btn btn-primary" onclick="hideElement()">Hide Element</button>
+        </div>
+        <div class="container">
+            <img src="https://www.qnetturkiye.blog/wp-content/uploads/2021/12/qnet-manchester-city.png" alt="Manchester City Logo" class="container-fluid">               
+        </div>
+        <div class="container-lg">
+            <div class="row" id="player1">
+            <h1>Players</h1>
+                <div class="col-md h1>">Phil Foden</div>
+                <div class="col-md h1>">Fernando Silva</div>
+                <div class="col-md h1>">Erling Haaland</div>
+                <div class="col-md h1>">Bernardo Silva</div>
+                <div class="col-md h1>">Kevin De Bruyne</div>
+                <div class="col-md h1>">İlkay Gündoğan</div>
+                <div class="col-md h1>">Julian Alvarez</div>
+            <div class="row" id="player2">
+                <div class="col-md h1>">Aymeric Laporte</div>
+                <div class="col-md h1>">Kyle Walker</div>
+                <div class="col-md h1>">Ederson Moraes</div>
+                <div class="col-md h1>">Rodri</div>
+                <div class="col-md h1>">Ruben Dias</div>
+                <div class="col-md h1>">Raheem Sterling</div>
+                <div class="col-md h1>">Jack Grealish</div>        
+            </div>
+        </div>
+        <div class="container mt-3">
+            <h2>Map</h2>
+            <div id = "map"></div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>   
+    </body>
+</html>
