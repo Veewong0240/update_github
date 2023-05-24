@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="CSS/mancity.css">
+        <link rel="stylesheet" href="css/mancity.css">
         <script src="java/showimg.js"></script>
         <title>Manchester City</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -15,12 +15,9 @@
             crossorigin=""></script>
         <style>
             body {
-                background-color: #6CABDD;
+                background-color: #fefefe;
             }
-            h1 {
-                color: #ffffff;
-            }
-            
+
             button{
                 color: rgba(0, 255, 255, 0.576);
             }
@@ -29,59 +26,209 @@
                 width: 100%;
             }
             h2{
-                color: #ffffff;
+                color: #6CABDD;
             }
             #player1 {
-                color: azure;
+                color: #f4f7fa;
             }
-            #buttonGroup{
+           
+            .custom-bg {
+                background-color: #6CABDD; 
+              }
+              .container h1 {
+                font-family: "Arial", sans-serif; 
+                font-size: 36px; 
+                font-weight: bold; 
+                color: #6CABDD; 
+              }
+              .container h3 {
+                font-family: "Arial", sans-serif; 
+                font-size: 19px; 
+                font-weight: normal; 
+                color: #666; 
+              }
+              .border {
+                background-color: #6CABDD;
+                border: 2px solid #FFC0CB; 
+                border-radius: 20px; 
+                box-shadow: 0 5 10px rgba(255, 192, 203, 0.5); 
+              }
+              .carousel-image_1 {
+                max-width: 70%;   
+                margin: auto;   
+              }
+              .carousel-image_2 {
+                max-width: 95%;   
+                margin: auto; 
+              }
+              .carousel-image_3 {
+                max-width: 60%;   
+                margin: auto; 
+              }
+              .logo {
+                width: 50px;
+            }
+            h2{
                 color: #ffffff;
             }
         </style>
     </head>
+    
+    
+    
     <body id= "body" onload="mapLoad()">
-        <nav class="nav nav-pills"
-            <a class="nav-link" href="#">HOME</a>
-            <a class="nav-link" href="#">News</a>
-            <a class="nav-link" href="#">Players</a>
-            <a class="nav-link" href="#">Social Media</a>
-        <div class="container">
-            <h1>Manchester City</h1>
-            <h3 class="d-none d-md-block">We represent Manchester.</h3>
+        <nav class="navbar navbar-expand-lg navbar-dark custom-bg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="images/logo.png" alt="Manchester City" class="logo"> 
+                </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="mancity.html">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Team
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="mancity.html">Coach</a></li>
+                          <li><a class="dropdown-item" href="#">Player</a></li>
+                          <li><a class="dropdown-item" href="#">Stadium</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Social Media
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="https://www.facebook.com/mancity/">Facebook</a></li>
+                          <li><a class="dropdown-item" href="https://twitter.com/ManCity">Twitter</a></li>
+                          <li><a class="dropdown-item" href="https://www.instagram.com/mancity">Instagram</a></li>
+                      </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav> 
+        <div class="container d-flex flex-column align-items-center">
+            <div>
+                <h1>Manchester City</h1>
+            </div>
+            <div>
+                <h3>We represent Manchester</h3>
+            </div>
+            <div>
+                <img src="images/logo.png" class="img-thumbnail" alt="Foden">
+            </div>
         </div>
 
 
-        <div class="container mt-5">
-            <div id="buttonGroup" class="h3">Sample JS</div>
-            <button type="button" class="btn btn-primary" onclick="howdy('Vee')">Run Sample Js</button>
+        <div class="container mt-5 border ">
+            <div id="buttonGroup" class="h3">Mancity Info</div>
+            <button type="button" class="btn btn-primary" onclick="playAudio()">Play Mancity Anthem</button> 
+            <audio id="myAudio" src="audio/Manchester City FC - The Boys in Blue.mp3" preload="auto"></audio>
             <button type="button" class="btn btn-primary" onclick="displayMinute()">Current Time</button>
             <button type="button" class="btn btn-primary" onclick="hideElement()">Hide Element</button>
         </div>
-        <div class="container">
-            <img src="https://www.qnetturkiye.blog/wp-content/uploads/2021/12/qnet-manchester-city.png" alt="Manchester City Logo" class="container-fluid">               
+
+        <div id="carousel_image" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carousel_image" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carousel_image" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carousel_image" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="images/manvsche.png" class="d-block w-100 carousel-image_1" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Manchester City 1:0 Chelsea</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="images/2023.jpeg" class="d-block w-100 carousel-image_2" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Manchester City wins its 7th Premier League title</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="images/je.jpeg" class="d-block w-100 carousel-image_3" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Arsenal's huge Gabriel Jesus contract offer after Man City star sets transfer deadlinel</h5>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel_image" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel_image" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          
+        <div class="container my-4 ">
+            <img src="images/20232.png" alt="Manchester City Logo" class="container-fluid">               
         </div>
-        <div class="container-lg">
-            <div class="row" id="player1">
+        <div class="container-lg mt-5 ">
+            <div class="row border" id="player1">
+            <h1>Coach</h1>
+                <div class="col-md h1>">Pep Guardiola
+                    <img src="images/Pep.jpeg" class="img-thumbnail" alt="Pep Guardiola">
+                </div>
+            
             <h1>Players</h1>
-                <div class="col-md h1>">Phil Foden</div>
-                <div class="col-md h1>">Fernando Silva</div>
-                <div class="col-md h1>">Erling Haaland</div>
-                <div class="col-md h1>">Bernardo Silva</div>
-                <div class="col-md h1>">Kevin De Bruyne</div>
-                <div class="col-md h1>">İlkay Gündoğan</div>
-                <div class="col-md h1>">Julian Alvarez</div>
-            <div class="row" id="player2">
-                <div class="col-md h1>">Aymeric Laporte</div>
-                <div class="col-md h1>">Kyle Walker</div>
-                <div class="col-md h1>">Ederson Moraes</div>
-                <div class="col-md h1>">Rodri</div>
-                <div class="col-md h1>">Ruben Dias</div>
-                <div class="col-md h1>">Raheem Sterling</div>
-                <div class="col-md h1>">Jack Grealish</div>        
+                <div class="col-md h1>">Phil Foden
+                    <img src="images/foden.jpeg" class="img-thumbnail" alt="Foden">
+                </div>
+                <div class="col-md h1>">Bernardo Silva
+                    <img src="images/silva.jpeg" class="img-thumbnail" alt="silva">
+                </div>
+                <div class="col-md h1>">Erling Haaland
+                    <img src="images/haaland.jpeg" class="img-thumbnail" alt="haaland">
+                </div>
+                <div class="col-md h1>">Nathan Aké
+                    <img src="images/ake.jpeg" class="img-thumbnail" alt="ake">
+                </div>
+                <div class="col-md h1>">Kevin De Bruyne
+                    <img src="images/kevin.jpeg" class="img-thumbnail" alt="kevin">
+                </div>
+                <div class="col-md h1>">İlkay Gündoğan
+                    <img src="images/gun.jpeg" class="img-thumbnail" alt="gun">
+                </div>
+                <div class="col-md h1>">Julian Alvarez
+                    <img src="images/alvarez.jpeg" class="img-thumbnail" alt="a">
+                </div>
+            <div class="row">
+                <div class="col-md h1>">Aymeric Laporte
+                    <img src="images/laporte.jpeg" class="img-thumbnail" alt="Foden">
+                </div>
+                <div class="col-md h1>">Kyle Walker
+                    <img src="images/walker.jpeg" class="img-thumbnail" alt="Foden">
+                </div>
+                <div class="col-md h1>">Ederson Moraes
+                    <img src="images/ederson.jpeg" class="img-thumbnail" alt="ederson">
+                </div>
+                <div class="col-md h1>">Rodri
+                    <img src="images/rodri.jpeg" class="img-thumbnail" alt="Foden">
+                </div>
+                <div class="col-md h1>">Ruben Dias
+                    <img src="images/diaz.jpeg" class="img-thumbnail" alt="Foden">
+                </div>
+                <div class="col-md h1>">Raheem Sterling
+                    <img src="images/sterling.jpeg" class="img-thumbnail" alt="Foden">
+                </div>
+                <div class="col-md h1>">Jack Grealish
+                    <img src="images/grealish.jpeg" class="img-thumbnail" alt="Foden">
+                </div>        
             </div>
         </div>
-        <div class="container mt-3">
-            <h2>Map</h2>
+        <div class="container mt-3 border">
+            <h2>Stadium</h2>
             <div id = "map"></div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>   

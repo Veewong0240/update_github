@@ -1,6 +1,3 @@
-function howdy(firstName){
-    alert("Howdy " + firstName);
-}
 
 function displayMinute(){
     var date = new Date();
@@ -44,7 +41,7 @@ function mapLoad(){
   
   
   
-    //Click event
+  
     var popup = L.popup();
   
     function onMapClick(e) {
@@ -55,3 +52,9 @@ function mapLoad(){
     }
     map.on('click', onMapClick);
   }
+
+  function playAudio() { 
+    var x = document.getElementById("myAudio"); 
+    x.play(); 
+} 
+

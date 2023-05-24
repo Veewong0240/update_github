@@ -1,8 +1,26 @@
 body {
-    background-color: rgba(15, 195, 250, 0.726);
+    background-color: #6CABDD;
 }
 h1 {
     color: #ffffff;
 }
 
-
+button{
+    color: rgba(0, 255, 255, 0.576);
+}
+#map {
+    height: 400px;
+    width: 100%;
+}
+h2{
+    color: #ffffff;
+}
+#player1 {
+    color: azure;
+}
+#buttonGroup{
+    color: #ffffff;
+}
+h2{
+    color: #ffffff;
+}
