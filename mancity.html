@@ -7,12 +7,8 @@
         <script src="java/showimg.js"></script>
         <title>Manchester City</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin="" />
-            <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-            crossorigin=""></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
         <style>
             body {
                 background-color: #fefefe;
@@ -28,8 +24,35 @@
             h2{
                 color: #6CABDD;
             }
-            #player1 {
-                color: #f4f7fa;
+            .player-card {
+                background-color: #6CABDD;
+                border: 1px solid #d3d3d3;
+                border-radius: 5px;
+                padding: 20px;
+                color: white;
+                text-align: center;
+                margin-bottom: 20px;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            }
+    
+            .player-card h2 {
+                margin-bottom: 15px;
+            }
+    
+            .player-card img {
+                width: 100%;
+                height: auto;
+                border-radius: 5px;
+            }
+    
+            .player-section h1 {
+                color: #6CABDD;
+                margin-bottom: 30px;
+            }
+    
+            .container-lg {
+                max-width: 960px;
+                margin: auto;
             }
            
             .custom-bg {
@@ -47,6 +70,34 @@
                 font-weight: normal; 
                 color: #666; 
               }
+              .info-container {
+                margin-top: 5rem;
+              }
+              
+              .info-container .info-card {
+                text-align: center;
+                background-color: #F8F9FA;
+                border-color: #6CABDD;
+                border-width: 1px;
+                margin-bottom: 1rem;
+              }
+              
+              .info-container .info-card .card-header {
+                color: #6CABDD;
+                font-size: 1.75rem;
+                border-bottom-color: #6CABDD;
+                border-bottom-width: 1px;
+              }
+              
+              .info-container .info-card .card-body {}
+              
+              .info-container .info-card .card-body .info-button {
+                background-color: #6CABDD;
+                color: white;
+                margin-bottom: .5rem;
+                width: 100%;
+              }
+              
               .border {
                 background-color: #6CABDD;
                 border: 2px solid #FFC0CB; 
@@ -70,6 +121,20 @@
             }
             h2{
                 color: #ffffff;
+            }
+            .drop-cap::first-letter {
+                float: left;
+                font-size: 3em;
+                line-height: 0.9em;
+                padding-top: 0.15em;
+                padding-right: 0.1em;
+                font-family: "Helvetica";
+            }
+            
+            .drop-cap {
+                font-family: "Helvetica";
+                font-size: 18px;
+                color: darkslategray;
             }
         </style>
     </head>
@@ -95,9 +160,9 @@
                         Team
                       </a>
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <li><a class="dropdown-item" href="mancity.html">Coach</a></li>
-                          <li><a class="dropdown-item" href="#">Player</a></li>
-                          <li><a class="dropdown-item" href="#">Stadium</a></li>
+                          <li><a class="dropdown-item" href="#coaches">Managers</a></li>
+                          <li><a class="dropdown-item" href="#players">Player</a></li>
+                          <li><a class="dropdown-item" href="#stadium">Stadium</a></li>
                       </ul>
                   </li>
                   <li class="nav-item dropdown">
@@ -127,12 +192,18 @@
         </div>
 
 
-        <div class="container mt-5 border ">
-            <div id="buttonGroup" class="h3">Mancity Info</div>
-            <button type="button" class="btn btn-primary" onclick="playAudio()">Play Mancity Anthem</button> 
-            <audio id="myAudio" src="audio/Manchester City FC - The Boys in Blue.mp3" preload="auto"></audio>
-            <button type="button" class="btn btn-primary" onclick="displayMinute()">Current Time</button>
-            <button type="button" class="btn btn-primary" onclick="hideElement()">Hide Element</button>
+        <div class="container mt-5 info-container">
+            <div class="info-card">
+              <div class="card-header">
+                Mancity Info
+              </div>
+              <div class="card-body">
+                <button type="button" class="info-button" onclick="playAudio()">Play Mancity Anthem</button> 
+                <audio id="myAudio" src="audio/Manchester City FC - The Boys in Blue.mp3" preload="auto"></audio>
+                <button type="button" class="info-button" onclick="displayMinute()">Current Time</button>
+                <button type="button" class="info-button" onclick="hideElement()">Hide Element</button>
+              </div>
+            </div>
         </div>
 
         <div id="carousel_image" class="carousel slide" data-bs-ride="carousel">
@@ -174,63 +245,154 @@
         <div class="container my-4 ">
             <img src="images/20232.png" alt="Manchester City Logo" class="container-fluid">               
         </div>
-        <div class="container-lg mt-5 ">
-            <div class="row border" id="player1">
-            <h1>Coach</h1>
-                <div class="col-md h1>">Pep Guardiola
-                    <img src="images/Pep.jpeg" class="img-thumbnail" alt="Pep Guardiola">
+        <div class="container mt-5">
+            <h1>Manchester City: An Introduction</h1>
+            <p class="drop-cap">Manchester City Football Club are an English football club based in Manchester that competes in the Premier League, the top flight of English football. Founded in 1880 as St. Mark's (West Gorton), they became Ardwick Association Football Club in 1887 and Manchester City in 1894. The club's home ground is the Etihad Stadium in east Manchester, to which they moved in 2003, having played at Maine Road since 1923. Manchester City adopted their sky blue home shirts in 1894, in the first season with the current name.[4] Over the course of its history, the club has won nine league titles, six FA Cups, eight League Cups, six FA Community Shields, and one European Cup Winners' Cup.</p>
+            <p class="drop-cap">The club joined the Football League in 1892, and won their first major honour, the FA Cup, in 1904. Manchester City had its first major period of success in the late 1960s and early 1970s, winning the league title, FA Cup, League Cup, and European Cup Winners Cup under the management of Joe Mercer and Malcolm Allison. After losing the 1981 FA Cup final, Manchester City went through a period of decline, culminating in relegation to the third tier of English football for the only time in their history in 1998. They since regained promotion to the top tier in 2001–02 and have remained a fixture in the Premier League since 2002–03.</p>
+            <p class="drop-cap">Manchester City received considerable financial investment both in playing staff and facilities following its takeover by Sheikh Mansour bin Zayed Al Nahyan through the Abu Dhabi United Group in August 2008. This started a new era of unprecedented success, with the club winning the FA Cup in 2011 and the Premier League in 2012, both their first since the 1960s, followed by another league title in 2014. Under the management of Pep Guardiola, Manchester City won the Premier League in 2018, becoming the only team in the competition history to attain 100 points in a single season. In 2018–19, they won four trophies, completing an unprecedented sweep of all domestic titles in England and becoming the first English men's team to win the domestic treble. This was followed by three consecutive Premier League titles in 2020–21, 2021–22, and 2022–23, the third, fourth, and fifth in the Guardiola era, as well as the club's first-ever Champions League final in 2021, which they lost to Chelsea. As of 2022, the club was ranked third in the UEFA coefficient standings, reaching its highest ever position.</p>
+            <p class="drop-cap"></p>
+        </div>
+        <div class="container-lg mt-5" >
+            <div class="player-section" id="coaches">
+                <h1>Manager</h1>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Pep Guardiola</h2>
+                            <img src="images/Pep.jpeg" class="img-thumbnail player-image" alt="Pep Guardiola">
+                            <p class="info">”Pep Guardiola is a Spanish professional football coach and former player who is the current manager of Premier League club Manchester City. He is considered to be one of the greatest managers of all time and holds the record for the most consecutive league games won in La Liga, the Bundesliga and the Premier League.“
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Rodolfo Borrell</h2>
+                            <img src="images/bor.webp" class="img-thumbnail player-image" alt="Rodolfo Borrell">
+                            <p class="info">"Rodolfo Borrell is a Spanish professional football coach currently serving as an assistant coach at Manchester City, who brings significant expertise in youth development following notable work at FC Barcelona's famous La Masia academy."</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Carlos Vicens</h2>
+                            <img src="images/car.webp" class="img-thumbnail player-image" alt="Carlos Vicens">
+                            <p class="info">
+                                "Carlos Vicens is a leading coach in Manchester City's youth system. His extensive experience and innovative training techniques have helped shape the future stars of the game, making him a key figure in Manchester City's youth development strategy."</p>
+                        </div>
+                    </div>
                 </div>
-            
-            <h1>Players</h1>
-                <div class="col-md h1>">Phil Foden
-                    <img src="images/foden.jpeg" class="img-thumbnail" alt="Foden">
+    
+                <h1>Players</h1>
+                <div class="row" id="players" >
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Phil Foden</h2>
+                            <img src="images/foden.jpeg" class="img-thumbnail player-image"  alt="Foden">
+                            <p class="info">"Phil Foden, a 23-year-old central midfielder hailing from Stockport, England, has emerged as a leading talent for Manchester City. Known for his creativity and vision on the pitch, Foden reportedly earns an annual salary of £6 million, showcasing the club's high regard for his abilities."</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Bernardo Silva</h2>
+                            <img src="images/silva.jpeg" class="img-thumbnail player-image" alt="Silva">
+                            <p class="info">"Bernardo Silva, a versatile 28-year-old midfielder, has been a critical playmaker for Manchester City since joining the team in 2017. Born in Lisbon, Portugal, Silva's dynamic performances have earned him a reported annual salary of around £7.8 million."</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Erling Haaland</h2>
+                            <img src="images/haaland.jpeg" class="img-thumbnail player-image" alt="Haaland">
+                            <p class="info">"Erling Haaland, a striking powerhouse hailing from Norway, has been rapidly gaining prominence in the football world. Currently playing as a forward for Manchester City, the 23-year-old stands out with his potent goal-scoring ability. Haaland's exceptional talent comes with an estimated annual salary of around £8 million."</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Nathan Aké</h2>
+                            <img src="images/ake.jpeg" class="img-thumbnail player-image" alt="Aké">
+                            <p class="info"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Kevin De Bruyne</h2>
+                            <img src="images/kevin.jpeg" class="img-thumbnail player-image" alt="Kevin">
+                            <p class="info"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>İlkay Gündoğan</h2>
+                            <img src="images/gun.jpeg" class="img-thumbnail player-image" alt="İlkay">
+                            <p class="info"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Julian Alvarez</h2>
+                            <img src="images/alvarez.jpeg" class="img-thumbnail player-image" alt="Julian">
+                            <p class="info"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Aymeric Laporte</h2>
+                            <img src="images/laporte.jpeg" class="img-thumbnail player-image" alt="Aymeric">
+                            <p class="info"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Kyle Walker</h2>
+                            <img src="images/walker.jpeg" class="img-thumbnail player-image" alt="Kyle">
+                            <p class="info"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Ederson Moraes</h2>
+                            <img src="images/ederson.jpeg" class="img-thumbnail player-image" alt="Ederson">
+                            <p class="info"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Rodri</h2>
+                            <img src="images/rodri.jpeg" class="img-thumbnail player-image" alt="Rodri">
+                            <p class="info"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Ruben Dias</h2>
+                            <img src="images/diaz.jpeg" class="img-thumbnail player-image" alt="Ruben">
+                            <p class="info"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Raheem Sterling</h2>
+                            <img src="images/sterling.jpeg" class="img-thumbnail player-image" alt="Raheem">
+                            <p class="info"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="player-card">
+                            <h2>Jack Grealish</h2>
+                            <img src="images/grealish.jpeg" class="img-thumbnail player-image" alt="Jack">
+                            <p class="info"></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md h1>">Bernardo Silva
-                    <img src="images/silva.jpeg" class="img-thumbnail" alt="silva">
-                </div>
-                <div class="col-md h1>">Erling Haaland
-                    <img src="images/haaland.jpeg" class="img-thumbnail" alt="haaland">
-                </div>
-                <div class="col-md h1>">Nathan Aké
-                    <img src="images/ake.jpeg" class="img-thumbnail" alt="ake">
-                </div>
-                <div class="col-md h1>">Kevin De Bruyne
-                    <img src="images/kevin.jpeg" class="img-thumbnail" alt="kevin">
-                </div>
-                <div class="col-md h1>">İlkay Gündoğan
-                    <img src="images/gun.jpeg" class="img-thumbnail" alt="gun">
-                </div>
-                <div class="col-md h1>">Julian Alvarez
-                    <img src="images/alvarez.jpeg" class="img-thumbnail" alt="a">
-                </div>
-            <div class="row">
-                <div class="col-md h1>">Aymeric Laporte
-                    <img src="images/laporte.jpeg" class="img-thumbnail" alt="Foden">
-                </div>
-                <div class="col-md h1>">Kyle Walker
-                    <img src="images/walker.jpeg" class="img-thumbnail" alt="Foden">
-                </div>
-                <div class="col-md h1>">Ederson Moraes
-                    <img src="images/ederson.jpeg" class="img-thumbnail" alt="ederson">
-                </div>
-                <div class="col-md h1>">Rodri
-                    <img src="images/rodri.jpeg" class="img-thumbnail" alt="Foden">
-                </div>
-                <div class="col-md h1>">Ruben Dias
-                    <img src="images/diaz.jpeg" class="img-thumbnail" alt="Foden">
-                </div>
-                <div class="col-md h1>">Raheem Sterling
-                    <img src="images/sterling.jpeg" class="img-thumbnail" alt="Foden">
-                </div>
-                <div class="col-md h1>">Jack Grealish
-                    <img src="images/grealish.jpeg" class="img-thumbnail" alt="Foden">
-                </div>        
             </div>
         </div>
-        <div class="container mt-3 border">
+        <div class="container mt-3 border" id="stadium">
             <h2>Stadium</h2>
             <div id = "map"></div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>   
+        <footer class="bg-dark text-white text-center py-3">
+            <div class="container">
+              <p class="mb-0">© 2023 VEE WONG All rights reserved.</p>
+            </div>
+        </footer>
     </body>
 </html>
