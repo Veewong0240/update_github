@@ -1,8 +1,5 @@
 body {
-    background-color: #6CABDD;
-}
-h1 {
-    color: #ffffff;
+    background-color: #fefefe;
 }
 
 button{
@@ -13,14 +10,117 @@ button{
     width: 100%;
 }
 h2{
-    color: #ffffff;
+    color: #6CABDD;
 }
-#player1 {
-    color: azure;
+.player-card {
+    background-color: #6CABDD;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
-#buttonGroup{
-    color: #ffffff;
+
+.player-card h2 {
+    margin-bottom: 15px;
+}
+
+.player-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.player-section h1 {
+    color: #6CABDD;
+    margin-bottom: 30px;
+}
+
+.container-lg {
+    max-width: 960px;
+    margin: auto;
+}
+
+.custom-bg {
+    background-color: #6CABDD; 
+  }
+  .container h1 {
+    font-family: "Arial", sans-serif; 
+    font-size: 36px; 
+    font-weight: bold; 
+    color: #6CABDD; 
+  }
+  .container h3 {
+    font-family: "Arial", sans-serif; 
+    font-size: 19px; 
+    font-weight: normal; 
+    color: #666; 
+  }
+  .info-container {
+    margin-top: 5rem;
+  }
+  
+  .info-container .info-card {
+    text-align: center;
+    background-color: #F8F9FA;
+    border-color: #6CABDD;
+    border-width: 1px;
+    margin-bottom: 1rem;
+  }
+  
+  .info-container .info-card .card-header {
+    color: #6CABDD;
+    font-size: 1.75rem;
+    border-bottom-color: #6CABDD;
+    border-bottom-width: 1px;
+  }
+  
+  .info-container .info-card .card-body {}
+  
+  .info-container .info-card .card-body .info-button {
+    background-color: #6CABDD;
+    color: white;
+    margin-bottom: .5rem;
+    width: 100%;
+  }
+  
+  .border {
+    background-color: #6CABDD;
+    border: 2px solid #FFC0CB; 
+    border-radius: 20px; 
+    box-shadow: 0 5 10px rgba(255, 192, 203, 0.5); 
+  }
+  .carousel-image_1 {
+    max-width: 70%;   
+    margin: auto;   
+  }
+  .carousel-image_2 {
+    max-width: 95%;   
+    margin: auto; 
+  }
+  .carousel-image_3 {
+    max-width: 60%;   
+    margin: auto; 
+  }
+  .logo {
+    width: 50px;
 }
 h2{
     color: #ffffff;
+}
+.drop-cap::first-letter {
+    float: left;
+    font-size: 3em;
+    line-height: 0.9em;
+    padding-top: 0.15em;
+    padding-right: 0.1em;
+    font-family: "Helvetica";
+}
+
+.drop-cap {
+    font-family: "Helvetica";
+    font-size: 18px;
+    color: darkslategray;
 }
