@@ -124,3 +124,25 @@ h2{
     font-size: 18px;
     color: darkslategray;
 }
+#title {
+    font-family: Arial, sans-serif; 
+    color: #6CABDD; 
+}
+
+form {
+    font-family: Arial, sans-serif;
+}
+
+.btn-primary {
+    background-color: #6CABDD; 
+}
+
+#searchTerm {
+    font-family: Arial, sans-serif;
+}
+
+#wiki {
+    font-family: Arial, sans-serif;
+    color: #6CABDD;
+}
+

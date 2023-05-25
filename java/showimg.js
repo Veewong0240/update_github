@@ -62,4 +62,64 @@ function mapLoad(){
     x.play(); 
 } 
 
+let players = [
+  { name: "Pep Guardiola", age: 51, position: "Coach", salary: 15000000 },
+  { name: "Rodolfo Borrell", age: 40, position: "Assistant Coach", salary: 5000000 },
+  { name: "Carlos Vicens", age: 42, position: "Assistant Coach", salary: 5000000 },
+  { name: "Phil Foden", age: 23, position: "Midfielder", salary: 12000000 },
+  { name: "Bernardo Silva", age: 28, position: "Midfielder", salary: 10000000 },
+  { name: "Erling Haaland", age: 26, position: "Forward", salary: 15000000 },
+  { name: "Nathan Aké", age: 28, position: "Defender", salary: 6000000 },
+  { name: "Kevin De Bruyne", age: 31, position: "Midfielder", salary: 18000000 },
+  { name: "İlkay Gündoğan", age: 32, position: "Midfielder", salary: 6000000 },
+  { name: "Julian Alvarez", age: 23, position: "Forward", salary: 8000000 },
+  { name: "Aymeric Laporte", age: 28, position: "Defender", salary: 8000000 },
+  { name: "Kyle Walker", age: 32, position: "Defender", salary: 7000000 },
+  { name: "Ederson Moraes", age: 28, position: "Goalkeeper", salary: 7000000 },
+  { name: "Rodri", age: 25, position: "Midfielder", salary: 8000000 },
+  { name: "Ruben Dias", age: 25, position: "Defender", salary: 8000000 },
+  { name: "Raheem Sterling", age: 28, position: "Forward", salary: 15000000 },
+  { name: "Jack Grealish", age: 26, position: "Midfielder", salary: 12000000 }
+];
+
+function parseArray(array, property) {
+  var clonedArray = [...array];
+  clonedArray.sort(function(a, b) {
+      if (a[property] < b[property]) {
+          return -1;
+      } else if (a[property] > b[property]) {
+          return 1;
+      } else {
+          return 0;
+      }
+  });
+  return clonedArray;
+}
+
+let sortedByAge = parseArray(players, 'age');
+console.log(sortedByAge);
+
+
+function wikiapi() {
+  var searchTerm = document.getElementById('searchTerm').value;
+  var connect = new XMLHttpRequest();
+  var url = "https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&generator=search&gsrnamespace=0&gsrlimit=20&gsrsearch=" + searchTerm;
+
+  connect.open('GET', url);
+
+  connect.onload = function() {
+      var wikiObject = JSON.parse(this.response);
+      console.log(wikiObject.query.pages);
+
+      var pages = wikiObject.query.pages;
+      for (var i in pages) {
+          var newDiv = document.createElement("div");
+          newDiv.setAttribute('class', 'row h4');
+          document.getElementById("wiki").appendChild(newDiv);
+          newDiv.innerHTML = `<a href="https://en.wikipedia.org/?curid=${pages[i].pageid}" target="_blank">${pages[i].title}</a>`;
+      }
+  };
+
+  connect.send();
+}
 

@@ -9,6 +9,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        
+        <script src="https://code.jquery/com/jquery-3,5.0.js"></script>
+        
+        
+        
         <style>
             body {
                 background-color: #fefefe;
@@ -136,6 +141,28 @@
                 font-size: 18px;
                 color: darkslategray;
             }
+            #title {
+                font-family: Arial, sans-serif; 
+                color: #6CABDD; 
+            }
+            
+            form {
+                font-family: Arial, sans-serif;
+            }
+            
+            .btn-primary {
+                background-color: #6CABDD;
+            }
+            
+            #searchTerm {
+                font-family: Arial, sans-serif;
+            }
+            
+            #wiki {
+                font-family: Arial, sans-serif;
+                color: #6CABDD;
+            }
+            
         </style>
     </head>
     
@@ -308,82 +335,101 @@
                         <div class="player-card">
                             <h2>Nathan Aké</h2>
                             <img src="images/ake.jpeg" class="img-thumbnail player-image" alt="Aké">
-                            <p class="info"></p>
+                            <p class="info">Nathan Aké, at the age of 26, is a highly skilled and versatile football player who has proven his capabilities in multiple positions on the field. He currently represents [current club] and is known for his defensive prowess. Despite his young age, Aké commands a significant salary, a testament to his talent and potential in the sport.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="player-card">
                             <h2>Kevin De Bruyne</h2>
                             <img src="images/kevin.jpeg" class="img-thumbnail player-image" alt="Kevin">
-                            <p class="info"></p>
+                            <p class="info">Kevin De Bruyne, age 32, is an exceptional Belgian professional footballer who plays as a midfielder for Premier League club Manchester City and the Belgian national team. Known for his excellent technique, wide range of passing, and vision on the pitch, De Bruyne is considered one of the best footballers in the world. He earns an estimated salary of around £16 million per year, making him one of the highest earners in the league.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="player-card">
                             <h2>İlkay Gündoğan</h2>
                             <img src="images/gun.jpeg" class="img-thumbnail player-image" alt="İlkay">
-                            <p class="info"></p>
+                            <p class="info">İlkay Gündoğan, aged 32, is an esteemed German professional footballer of Turkish descent. He represents Manchester City in the Premier League and the German national team, often playing as a central midfielder. Gündoğan is known for his intelligence on the field, technical skills, and his ability to score goals. He is currently earning an annual salary of about £5.2 million, reflecting his importance to both club and country.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="player-card">
                             <h2>Julian Alvarez</h2>
                             <img src="images/alvarez.jpeg" class="img-thumbnail player-image" alt="Julian">
-                            <p class="info"></p>
+                            <p class="info">Julian Alvarez, aged 23, is a talented Argentine professional footballer. He currently serves as a forward for Manchester City in the Premier League. Alvarez has a knack for finding the back of the net, and his speed, agility, and finishing ability make him a significant asset to his team. His annual salary is estimated to be in the region of £2 million, which is expected to rise as his career progresses due to his outstanding potential.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="player-card">
                             <h2>Aymeric Laporte</h2>
                             <img src="images/laporte.jpeg" class="img-thumbnail player-image" alt="Aymeric">
-                            <p class="info"></p>
+                            <p class="info">Aymeric Laporte, aged 29, is a seasoned French professional footballer who shines as a central defender for Manchester City and the French national team. Renowned for his technical skills, football intelligence, and ability to play out from the back, Laporte is a pivotal figure in the defensive structure of his team. He receives an annual salary in the region of £6 million, reflecting his high value and contribution to Manchester City.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="player-card">
                             <h2>Kyle Walker</h2>
                             <img src="images/walker.jpeg" class="img-thumbnail player-image" alt="Kyle">
-                            <p class="info"></p>
+                            <p class="info">Kyle Walker, aged 33, is an established English professional footballer, currently serving as a right back for Manchester City and the England national team. Known for his remarkable pace, agility, and strong defensive skills, Walker is a crucial asset to his team's defensive line-up. With his extensive experience and consistent performances, Walker earns an estimated annual salary of £7 million.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="player-card">
                             <h2>Ederson Moraes</h2>
                             <img src="images/ederson.jpeg" class="img-thumbnail player-image" alt="Ederson">
-                            <p class="info"></p>
+                            <p class="info">Ederson Moraes, aged 29, is a prominent Brazilian professional footballer who is currently the primary goalkeeper for Manchester City and the Brazilian national team. Known for his exceptional reflexes, accurate distribution, and composure under pressure, Ederson plays a crucial role in his team's defensive setup. With his outstanding performances and critical saves, Ederson earns an estimated annual salary of £6.5 million.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="player-card">
-                            <h2>Rodri</h2>
+                            <h2>Rodri Hernandez Cascante</h2>
                             <img src="images/rodri.jpeg" class="img-thumbnail player-image" alt="Rodri">
-                            <p class="info"></p>
+                            <p class="info">Rodri, full name Rodrigo Hernandez Cascante, aged 26, is a distinguished Spanish professional footballer who serves as a defensive midfielder for Manchester City and the Spanish national team. Known for his tactical intelligence, vision, and impressive ball control, Rodri plays a key role in Manchester City's midfield. With his consistent performances and influential presence, Rodri earns an estimated annual salary of £6.8 million.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="player-card">
                             <h2>Ruben Dias</h2>
                             <img src="images/diaz.jpeg" class="img-thumbnail player-image" alt="Ruben">
-                            <p class="info"></p>
+                            <p class="info">Rúben Dias, 26 years old, is a Portuguese professional footballer known for his commanding presence on the pitch. He is a centre-back for both Manchester City and the Portugal national team. Since joining Manchester City, Dias has made a significant impact, showcasing excellent defensive skills and leadership. He is instrumental to the team's defensive solidity and his performance is reflected in his annual salary, estimated to be around £6.2 million.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="player-card">
                             <h2>Raheem Sterling</h2>
                             <img src="images/sterling.jpeg" class="img-thumbnail player-image" alt="Raheem">
-                            <p class="info"></p>
+                            <p class="info">Raheem Sterling, 28 years old, is an integral part of Manchester City's attack as a winger, and also represents the England national team. Known for his speed, agility, and sharp finishing, Sterling has been instrumental in City's recent successes. His annual salary at Manchester City, a reflection of his significant contributions, is reported to be around £15.6 million.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="player-card">
                             <h2>Jack Grealish</h2>
                             <img src="images/grealish.jpeg" class="img-thumbnail player-image" alt="Jack">
-                            <p class="info"></p>
+                            <p class="info">Jack Grealish, aged 27, is an English attacking midfielder who also plays as a winger for Manchester City and the England national team. Known for his flair, dribbling skills, and vision on the pitch, Grealish made a significant transfer to Manchester City from Aston Villa in 2021. His reported annual salary at Manchester City is around £15 million, making him one of the top earners at the club.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="container mt-3">
+            <div id="title">Other players you interested</div>
+        
+            <form onsubmit="event.preventDefault(); wikiapi();">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" id="searchTerm" class="form-control" placeholder="Enter you player here.">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary my-3">Search</button>
+            </form>
+            
+            <div class="container" id="wiki"></div>
+        </div>
+        
+        
+
+
+
         <div class="container mt-3 border" id="stadium">
             <h2>Stadium</h2>
             <div id = "map"></div>
